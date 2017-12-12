@@ -81,9 +81,7 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
     }
     
     func onComplete(_ methodName: String) {
-        print("On complete " , DataModel.sharedInstance.results.count)
         self.searchTextField.filterItems(DataModel.sharedInstance.results)
-        
         self.searchTextField.stopLoadingIndicator()
         
     }

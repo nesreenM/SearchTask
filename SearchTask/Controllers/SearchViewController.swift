@@ -27,7 +27,6 @@ class SearchViewController: UIViewController,NetworkRequestCompletionHandler {
         super.didReceiveMemoryWarning()
     }
     func onComplete(_ methodName: String) {
-        print("On complete search tab")
         tableView.reloadData()
     }
     
@@ -68,7 +67,6 @@ extension SearchViewController : UITableViewDataSource,UITextFieldDelegate {
                         
                         cell.logoImageView.image = image
                         if indexPath.row % 2 != 0 {
-                            print("ODD")
                             cell.logoImageView.backgroundColor = UIColor.init(red: 245/255, green:  245/255, blue:  245/255, alpha: 1)
                         }
                     }
@@ -82,7 +80,6 @@ extension SearchViewController : UITableViewDataSource,UITextFieldDelegate {
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        print("Enter")
         NetworkRequests().getSearchResults(query: textField.text! , sender: self)
         return true
     }
