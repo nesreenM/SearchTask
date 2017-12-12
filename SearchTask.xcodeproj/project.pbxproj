@@ -16,6 +16,8 @@
 		E36294FE1FE049C600F1E288 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36294FD1FE049C600F1E288 /* ApiManager.swift */; };
 		E36295001FE04B9300F1E288 /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36294FF1FE04B9300F1E288 /* NetworkRequests.swift */; };
 		E36295021FE04EBB00F1E288 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36295011FE04EBB00F1E288 /* DataModel.swift */; };
+		E36295041FE05A4B00F1E288 /* Montserrat in Resources */ = {isa = PBXBuildFile; fileRef = E36295031FE05A4B00F1E288 /* Montserrat */; };
+		E36295071FE0608100F1E288 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E36295061FE0608100F1E288 /* Montserrat-Regular.ttf */; };
 		F56AD52BC7F63F66EF4D8855 /* Pods_SearchTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4397C7C6DACA5DE6236314C5 /* Pods_SearchTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		E36294FD1FE049C600F1E288 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		E36294FF1FE04B9300F1E288 /* NetworkRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
 		E36295011FE04EBB00F1E288 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		E36295031FE05A4B00F1E288 /* Montserrat */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Montserrat; sourceTree = "<group>"; };
+		E36295061FE0608100F1E288 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		E341EBE91FE032D500D79667 = {
 			isa = PBXGroup;
 			children = (
+				E36295061FE0608100F1E288 /* Montserrat-Regular.ttf */,
 				E341EBF41FE032D500D79667 /* SearchTask */,
 				E341EBF31FE032D500D79667 /* Products */,
 				75967BBD48B63952CB17CE9C /* Pods */,
@@ -86,6 +91,7 @@
 		E341EBF41FE032D500D79667 /* SearchTask */ = {
 			isa = PBXGroup;
 			children = (
+				E36295031FE05A4B00F1E288 /* Montserrat */,
 				E341EBF51FE032D500D79667 /* AppDelegate.swift */,
 				E341EBF71FE032D500D79667 /* ViewController.swift */,
 				E341EBF91FE032D500D79667 /* Main.storyboard */,
@@ -162,7 +168,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36295071FE0608100F1E288 /* Montserrat-Regular.ttf in Resources */,
 				E341EC001FE032D500D79667 /* LaunchScreen.storyboard in Resources */,
+				E36295041FE05A4B00F1E288 /* Montserrat in Resources */,
 				E341EBFD1FE032D500D79667 /* Assets.xcassets in Resources */,
 				E341EBFB1FE032D500D79667 /* Main.storyboard in Resources */,
 			);

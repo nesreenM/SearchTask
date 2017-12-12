@@ -18,23 +18,33 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTextField.backgroundColor = UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         
+        searchTextField.layer.borderColor = UIColor.init(red: 234/255, green: 234/255, blue: 234/255, alpha: 1).cgColor
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 18)!]
         customizeSearchTextField()
+        textFieldElasticSearch()
+        self.hideKeyboardWhenTappedAround()
+      
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     func customizeSearchTextField(){
-
+//        searchTextField.theme.font = UIFont(name: "Montserrat-Regular", size: 14)!
+        searchTextField.theme.bgColor = UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        
+        searchTextField.theme.borderColor = UIColor.init(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
+        searchTextField.theme.fontColor = UIColor.init(red: 29/255, green: 29/255, blue: 29/255, alpha: 1)
+    }
+    
+    func textFieldElasticSearch(){
+        
         searchTextField.itemSelectionHandler = { filteredResults, itemPosition in
             let item = filteredResults[itemPosition]
-            print("Filtered results " ,filteredResults.count)
-            print("Item at position \(itemPosition): \(item.title)")
-            
-            // Do whatever you want with the picked item
+            self.dismissKeyboard()
             self.searchTextField.text = item.title
             self.nameLabel.text = item.title
             self.domainLabel.text = DataModel.sharedInstance.dataDictionary[item.title]?[0]
@@ -44,7 +54,10 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
                 if let data = data {
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
-                            self.domainImageView.image = image
+                        UIView.transition(with: self.domainImageView, duration: 0.8, options: .transitionFlipFromTop, animations: {
+                                self.domainImageView.image = image
+                        }, completion: nil)
+                        
                     }
                 }
                 else{
@@ -64,6 +77,7 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
             }
             } as (() -> Void)
     }
+    
     func onComplete(_ methodName: String) {
         print("On complete " , DataModel.sharedInstance.results.count)
         self.searchTextField.filterItems(DataModel.sharedInstance.results)
@@ -77,4 +91,15 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
     }
     
 
+}
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
