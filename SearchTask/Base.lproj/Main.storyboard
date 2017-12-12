@@ -26,21 +26,65 @@
             </objects>
             <point key="canvasLocation" x="419" y="440"/>
         </scene>
-        <!--View Controller-->
+        <!--Quick Search-->
         <scene sceneID="Uef-9a-6va">
             <objects>
-                <viewController id="vhb-pF-xEz" sceneMemberID="viewController">
+                <viewController id="vhb-pF-xEz" customClass="QuickSearchViewController" customModule="SearchTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TX4-mR-Niz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ta-9s-5rg" customClass="SearchTextField" customModule="SearchTextField">
+                                <rect key="frame" x="32" y="96" width="311" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileDefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="bGm-sd-PTp">
+                                <rect key="frame" x="142" y="293" width="90" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="CaN-Zg-nyx"/>
+                                    <constraint firstAttribute="width" constant="90" id="vjY-NA-HpC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqe-WC-cDN">
+                                <rect key="frame" x="166" y="398" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7f-mJ-G3l">
+                                <rect key="frame" x="166" y="435" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Ta-9s-5rg" firstAttribute="top" secondItem="ulX-6J-R4n" secondAttribute="top" constant="32" id="BDL-6r-Uj8"/>
+                            <constraint firstItem="Nqe-WC-cDN" firstAttribute="centerX" secondItem="TX4-mR-Niz" secondAttribute="centerX" id="Bfl-T6-b76"/>
+                            <constraint firstItem="g7f-mJ-G3l" firstAttribute="centerX" secondItem="TX4-mR-Niz" secondAttribute="centerX" id="Hny-Pl-aOi"/>
+                            <constraint firstItem="bGm-sd-PTp" firstAttribute="centerX" secondItem="TX4-mR-Niz" secondAttribute="centerX" id="VLC-K4-SnH"/>
+                            <constraint firstItem="bGm-sd-PTp" firstAttribute="centerY" secondItem="TX4-mR-Niz" secondAttribute="centerY" id="fUo-15-Cav"/>
+                            <constraint firstItem="8Ta-9s-5rg" firstAttribute="leading" secondItem="ulX-6J-R4n" secondAttribute="leading" constant="32" id="foK-BM-akl"/>
+                            <constraint firstItem="8Ta-9s-5rg" firstAttribute="centerX" secondItem="TX4-mR-Niz" secondAttribute="centerX" id="gKz-vD-jNO"/>
+                            <constraint firstItem="g7f-mJ-G3l" firstAttribute="top" secondItem="Nqe-WC-cDN" secondAttribute="bottom" constant="16" id="tJn-rh-8bL"/>
+                            <constraint firstItem="Nqe-WC-cDN" firstAttribute="top" secondItem="bGm-sd-PTp" secondAttribute="bottom" constant="24" id="vp2-cv-bGB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ulX-6J-R4n"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="QuickSearch" selectedImage="QuickSearchSelected" id="2tN-mR-fZe"/>
+                    <navigationItem key="navigationItem" title="Quick Search" id="d89-oQ-wfw"/>
+                    <connections>
+                        <outlet property="domainImageView" destination="bGm-sd-PTp" id="e1v-M9-Efs"/>
+                        <outlet property="domainLabel" destination="g7f-mJ-G3l" id="ZK5-La-UXc"/>
+                        <outlet property="nameLabel" destination="Nqe-WC-cDN" id="8bC-MR-kkw"/>
+                        <outlet property="searchTextField" destination="8Ta-9s-5rg" id="rGD-6V-Nij"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AG9-5n-XA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="-228"/>
+            <point key="canvasLocation" x="757.60000000000002" y="-228.03598200899552"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Jfn-2Q-WrL">
@@ -52,7 +96,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vhb-pF-xEz" kind="relationship" relationship="viewControllers" id="CRI-lG-aZA"/>
+                        <segue destination="rnJ-vV-xZM" kind="relationship" relationship="viewControllers" id="CRI-lG-aZA"/>
                         <segue destination="fAq-we-t3B" kind="relationship" relationship="viewControllers" id="XZq-SD-g5r"/>
                     </connections>
                 </tabBarController>
@@ -60,8 +104,28 @@
             </objects>
             <point key="canvasLocation" x="-533" y="105"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wPi-zo-WaA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rnJ-vV-xZM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="QuickSearch" selectedImage="QuickSearchSelected" id="2tN-mR-fZe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oji-OP-oGR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vhb-pF-xEz" kind="relationship" relationship="rootViewController" id="6gm-BM-REB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipa-rs-OtF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="465" y="-2022"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="ProfileDefaultImage" width="90" height="90"/>
         <image name="QuickSearch" width="12" height="18"/>
         <image name="QuickSearchSelected" width="12" height="18"/>
         <image name="SearchTab" width="18" height="18"/>
