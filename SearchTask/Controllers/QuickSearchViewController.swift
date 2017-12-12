@@ -37,7 +37,6 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
         // Dispose of any resources that can be recreated.
     }
     func customizeSearchTextField(){
-//        searchTextField.theme.font = UIFont(name: "Montserrat-Regular", size: 14)!
         searchTextField.theme.bgColor = UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
         
         searchTextField.theme.borderColor = UIColor.init(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)

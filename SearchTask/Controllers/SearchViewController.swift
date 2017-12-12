@@ -15,6 +15,8 @@ class SearchViewController: UIViewController,NetworkRequestCompletionHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.tableView.tableFooterView = UIView()
+
 
     }
     override func viewWillAppear(_ animated: Bool) {

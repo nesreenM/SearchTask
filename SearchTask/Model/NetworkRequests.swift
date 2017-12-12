@@ -11,7 +11,7 @@ import SearchTextField
 class NetworkRequests {
     
    func getSearchResults(query:String , sender:NetworkRequestCompletionHandler){
-        APIManager().getRequest("", parameters: query, queryParameters: nil, headers: nil, completionHandlerForGET: {
+        APIManager().getRequest("", parameters: query, completionHandlerForGET: {
             (result,error,statusCode) in
             if statusCode >= 200 && statusCode <= 299 {
                 
@@ -66,7 +66,3 @@ class NetworkRequests {
 }
 
 
-protocol NetworkRequestCompletionHandler {
-    func onComplete(_ methodName : String)
-    func onError(_ methodName : String)
-}

@@ -20,6 +20,7 @@
 		E36295091FE067FB00F1E288 /* SearchTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36295081FE067FB00F1E288 /* SearchTextFieldTableViewCell.swift */; };
 		E390A3361FE06E590060F44F /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E390A3351FE06E590060F44F /* ResultTableViewCell.swift */; };
 		E390A3381FE06EDA0060F44F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E390A3371FE06EDA0060F44F /* SearchViewController.swift */; };
+		E390A33E1FE07AAE0060F44F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E390A33D1FE07AAE0060F44F /* Protocols.swift */; };
 		F56AD52BC7F63F66EF4D8855 /* Pods_SearchTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4397C7C6DACA5DE6236314C5 /* Pods_SearchTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		E36295081FE067FB00F1E288 /* SearchTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		E390A3351FE06E590060F44F /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		E390A3371FE06EDA0060F44F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E390A33D1FE07AAE0060F44F /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				E36294FD1FE049C600F1E288 /* ApiManager.swift */,
 				E36294FF1FE04B9300F1E288 /* NetworkRequests.swift */,
 				E36295011FE04EBB00F1E288 /* DataModel.swift */,
+				E390A33D1FE07AAE0060F44F /* Protocols.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				E36294FE1FE049C600F1E288 /* ApiManager.swift in Sources */,
 				E36295001FE04B9300F1E288 /* NetworkRequests.swift in Sources */,
 				E390A3381FE06EDA0060F44F /* SearchViewController.swift in Sources */,
+				E390A33E1FE07AAE0060F44F /* Protocols.swift in Sources */,
 				E36295091FE067FB00F1E288 /* SearchTextFieldTableViewCell.swift in Sources */,
 				E341EBF61FE032D500D79667 /* AppDelegate.swift in Sources */,
 				E36294FC1FE03D0300F1E288 /* QuickSearchViewController.swift in Sources */,
