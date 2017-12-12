@@ -13,6 +13,7 @@ class DataModel {
     static let sharedInstance = DataModel()
     var results = [SearchTextFieldItem]()
     var dataDictionary : [String:[String]] = [:]
+    var resultsNames:[String] = []
     private init(){
         
     }

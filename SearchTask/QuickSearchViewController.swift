@@ -27,7 +27,11 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
         self.hideKeyboardWhenTappedAround()
       
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DataModel.sharedInstance.dataDictionary.removeAll()
+        DataModel.sharedInstance.results.removeAll()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,9 +64,7 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
                         
                     }
                 }
-                else{
-//                    self.domainImageView.image = UIImage(named: "image-not-available")
-                }
+
             })
             
         }

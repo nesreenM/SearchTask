@@ -18,22 +18,17 @@ class NetworkRequests {
                 if let dataArray = result as? [[String:Any]] {
                     DataModel.sharedInstance.results.removeAll()
                     DataModel.sharedInstance.dataDictionary.removeAll()
+                    DataModel.sharedInstance.resultsNames.removeAll()
                     for data in dataArray {
                        
                         let itemName = data["name"] as? String ?? ""
                         let itemDomain = data["domain"] as? String ?? ""
                         let itemLogo = data["logo"] as? String ?? ""
+                    
                         DataModel.sharedInstance.dataDictionary[itemName] = [itemDomain ,itemLogo]
-
-                        print("Item ", itemName)
-                        print("itemDomain ", itemDomain)
-                        print("itemLogo ", itemLogo)
-
                         DataModel.sharedInstance.results.append(SearchTextFieldItem(title: itemName))
+                        DataModel.sharedInstance.resultsNames.append(itemName)
                     }
-                    print("Data model" , DataModel.sharedInstance.results.count)
-                    print("Data model count" , DataModel.sharedInstance.dataDictionary.count)
-
                     DispatchQueue.main.async {
                         sender.onComplete("getSearchResults")
                     }
