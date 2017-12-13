@@ -15,6 +15,7 @@ class ResultTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        logoImageView.layer.cornerRadius = logoImageView.layer.frame.width * 0.5
         // Initialization code
     }
 

@@ -8,13 +8,18 @@
 
 import UIKit
 import SearchTextField
+import SystemConfiguration
+
 class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandler {
   
 
+    @IBOutlet weak var activityIndictor: UIActivityIndicatorView!
     @IBOutlet weak var domainImageView: UIImageView!
     @IBOutlet weak var domainLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var searchTextField: SearchTextField!
+    var reachability =  Reachability()!
+    var networkLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +30,12 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
         customizeSearchTextField()
         textFieldElasticSearch()
         self.hideKeyboardWhenTappedAround()
-      
+        activityIndictor.activityIndicatorViewStyle = .gray
+        activityIndictor.stopAnimating()
+        networkLabel = displayNetworkLabel()
+        addReachabilityObserver(reachability: reachability)
+        self.view.addSubview(networkLabel)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,6 +45,15 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func internetChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        if(reachability.connection != .none){
+            networkLabel.removeFromSuperview()
+        }else {
+            print("No internet")
+            self.view.addSubview(networkLabel)
+        }
     }
     func customizeSearchTextField(){
         searchTextField.theme.bgColor = UIColor.init(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
@@ -52,11 +71,15 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
             self.nameLabel.text = item.title
             self.domainLabel.text = DataModel.sharedInstance.dataDictionary[item.title]?[0]
             let url =  DataModel.sharedInstance.dataDictionary[item.title]?[1]
+            self.activityIndictor.startAnimating()
+            self.domainImageView.image = UIImage()
             NetworkRequests().getProductImage(url: url!,completionHandlerGetProductImage: {
                 data in
                 if let data = data {
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
+                        self.activityIndictor.stopAnimating()
+
                         UIView.transition(with: self.domainImageView, duration: 0.8, options: .transitionFlipFromTop, animations: {
                                 self.domainImageView.image = image
                         }, completion: nil)
