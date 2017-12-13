@@ -9,7 +9,7 @@
 import UIKit
 import SystemConfiguration
 
-class SearchViewController: UIViewController,NetworkRequestCompletionHandler {
+class SearchViewController: UIViewController,NetworkRequestCompletionHandler ,UITableViewDelegate{
   
     @IBOutlet weak var tableView: UITableView!
     var loadingView : UIView?
@@ -23,7 +23,12 @@ class SearchViewController: UIViewController,NetworkRequestCompletionHandler {
         networkLabel = displayNetworkLabel()
         addReachabilityObserver(reachability: reachability)
         self.view.addSubview(networkLabel)
-
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4.0
+        self.navigationController?.navigationBar.layer.shadowOpacity = 1.0
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 18)!]
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,9 +56,7 @@ class SearchViewController: UIViewController,NetworkRequestCompletionHandler {
         print("Error search tab")
     }
 }
-extension SearchViewController : UITableViewDelegate {
-    
-}
+
 extension SearchViewController : UITableViewDataSource,UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return DataModel.sharedInstance.resultsNames.count + 1

@@ -36,6 +36,12 @@ class QuickSearchViewController: UIViewController,NetworkRequestCompletionHandle
         addReachabilityObserver(reachability: reachability)
         self.view.addSubview(networkLabel)
         
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4.0
+        self.navigationController?.navigationBar.layer.shadowOpacity = 1.0
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
